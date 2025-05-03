@@ -179,50 +179,50 @@
         <div class="row">
           <!-- 1 -->
           <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="box mb-3 bg-white" data-work="Application">
-              <img class="img-fluid" src="./images/work-01.jpg" alt="" />
+            <div class="box mb-3 bg-white" data-work="Design">
+              <img class="img-fluid" src="/images/work-01.jpg" alt="" />
             </div>
           </div>
           <!-- 2 -->
           <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="box mb-3 bg-white" data-work="Application">
-              <img class="img-fluid" src="./images/work-02.jpg" alt="" />
+            <div class="box mb-3 bg-white" data-work="Design">
+              <img class="img-fluid" src="/images/work-02.jpg" alt="" />
             </div>
           </div>
           <!-- 3 -->
           <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="box mb-3 bg-white" data-work="Application">
-              <img class="img-fluid" src="./images/work-03.jpg" alt="" />
+            <div class="box mb-3 bg-white" data-work="App">
+              <img class="img-fluid" src="/images/work-03.jpg" alt="" />
             </div>
           </div>
           <!-- 4 -->
           <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="box mb-3 bg-white" data-work="Application">
-              <img class="img-fluid" src="./images/work-04.jpg" alt="" />
+            <div class="box mb-3 bg-white" data-work="Photo">
+              <img class="img-fluid" src="/images/work-04.jpg" alt="" />
             </div>
           </div>
           <!-- 5 -->
           <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="box mb-3 bg-white" data-work="Application">
-              <img class="img-fluid" src="./images/work-05.jpg" alt="" />
+            <div class="box mb-3 bg-white" data-work="Code">
+              <img class="img-fluid" src="/images/work-05.jpg" alt="" />
             </div>
           </div>
           <!-- 6 -->
           <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="box mb-3 bg-white" data-work="Application">
-              <img class="img-fluid" src="./images/work-06.jpg" alt="" />
+            <div class="box mb-3 bg-white" data-work="Code">
+              <img class="img-fluid" src="/images/work-06.jpg" alt="" />
             </div>
           </div>
           <!-- 7 -->
           <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="box mb-3 bg-white" data-work="Application">
-              <img class="img-fluid" src="./images/work-07.jpg" alt="" />
+            <div class="box mb-3 bg-white" data-work="App">
+              <img class="img-fluid" src="/images/work-07.jpg" alt="" />
             </div>
           </div>
           <!-- 8 -->
           <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="box mb-3 bg-white" data-work="Application">
-              <img class="img-fluid" src="./images/work-08.jpg" alt="" />
+            <div class="box mb-3 bg-white" data-work="Photo">
+              <img class="img-fluid" src="/images/work-08.jpg" alt="" />
             </div>
           </div>
         </div>
@@ -536,5 +536,28 @@
     <!-- End Footer Section -->
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/all.min.js"></script>
+
+    <script>
+      const filterItems = document.querySelectorAll(".our-work ul li");
+      const boxes = document.querySelectorAll(".our-work .box");
+
+      filterItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          filterItems.forEach((el) => el.classList.remove("active"));
+
+          item.classList.add("active");
+
+          const category = item.textContent;
+
+          boxes.forEach((box) => {
+            if (category === "All" || box.dataset.work === category) {
+              box.parentElement.style.display = "block";
+            } else {
+              box.parentElement.style.display = "none";
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
